@@ -1,1 +1,171 @@
+SET latte to 0
+SET extrovert to 0
 
+PRINT "Are you a Latte or Espresso?"
+
+GET name
+
+# 1st question
+GET "Would your friends describe you as intense?" AS STR q1
+IF q1 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 2nd question
+GET "Do you like to make schedules and to-do lists?" AS STR q2
+IF q2 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 3rd question
+GET "Do you have a hard time focusing?" AS STR q3
+IF q3 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 4th question
+GET "Do you like to listen to chill music?" AS STR q4
+IF q4 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 5th question
+GET "Would poeple call you a leader?" AS STR q5
+IF q5 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 6th question
+GET "Are you great at comforting people?" AS STR q6
+IF q6 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 7th question
+GET "Do you like to try things that are 'bold'?" AS STR q7
+IF q7 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 8th question
+GET "Is it "Yes" you don't like conflict of any manner?" AS STR q8
+IF q8 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 9th question
+GET "Would you call yourself a person who's hard to forget?" AS STR q9
+IF q9 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 10th question
+GET "Would people say you are a balanced person?" AS STR q10
+IF q10 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 11th question
+GET "Do you value facts and honesty over feelings?" AS STR q11
+IF q11 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 12th question
+GET "Do you love to help others?" AS STR q12
+IF q12 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 13th question
+GET "Would others describe you as being goal-oriented?" AS STR q13
+IF q13 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 14th question
+GET "Do you think greatly of what others think?" AS STR q14
+IF q14 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 15th question
+GET "Are you a natural-born leader?" AS STR q15
+IF q15 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 16th question
+GET "Are you able to adopt to your scheduling?" AS STR q16
+IF q16 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 17th question
+GET "Do you like to try new things?" AS STR q17
+IF q17 = "Yes" THEN:
+    INCREMENT espresso by 1
+ELSE:
+    INCREMENT latte by 1
+END IF
+
+# 18th question
+GET "Are you a more laidback person in general?" AS STR q18
+IF q18 = "Yes" THEN:
+    INCREMENT latte by 1
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# 19th question
+GET "Do you like to be unique when picking your options?" AS STR q19
+IF q19 = "Yes" THEN:
+    GET "Do you often take the most popular option" AS STR q20
+    IF q20 = "Yes" THEN:
+        INCREMENT latte by 1
+    ELSE:
+        BREAK
+    END IF
+ELSE:
+    INCREMENT espresso by 1
+END IF
+
+# Display type of personality
+IF latte > espresso THEN:
+    OUTPUT "{name} you are... a latte!"
+ELIF latte < espresso THEN:
+    OUTPUT "{name} you are... an espresso!"
+ELSE:
+    OUTPUT "{name} you are... a mix of the two!"
