@@ -1,1 +1,88 @@
+FUNCTION q_gen(q_list, dichot):
+    SET q1 to q_list[0]
+    SET q2 to q_list[1]
+    SET q3 to q_list[2]
+    SET q4 to q_list[3]
+    SET q5 to q_list[4]
 
+    GET q1
+    IF q1 = "Y" THEN:
+        INCREMENT pref_1 by 1
+    ELSE:
+        INCREMENT pref_2 by 1
+    END IF
+
+    GET q2
+    IF q2 = "Y" THEN:
+        INCREMENT pref_1 by 1
+    ELSE:
+        INCREMENT pref_2 by 1
+    END IF
+    
+    GET q3
+    IF q3 = "Y" THEN:
+        INCREMENT pref_1 by 1
+    ELSE:
+        INCREMENT pref_2 by 1
+    END IF
+
+    GET q4
+    IF q4 = "Y" THEN:
+        INCREMENT pref_1 by 1
+    ELSE:
+        INCREMENT pref_2 by 1
+    END IF
+
+    GET q5
+    IF q5 = "Y" THEN:
+        INCREMENT pref_1 by 1
+    ELSE:
+        INCREMENT pref_2 by 1
+    END IF
+
+    SET pref to ''
+
+    IF pref_1 >= pref_2 THEN
+        SET pref TO dichot[0]
+    ELSE
+        SET pref TO dichot[1]
+    END IF
+
+    RETURN pref
+END FUNCTION
+
+SET MBTI to an empty string
+
+SET dichot TO [
+    ["E", "I"],  # Energy Orientation (E,I)
+    ["S", "N"],  # Information Processing (S, N)
+    ["T", "F"],  # Decision Making (T, F)
+    ["J", "P"]   # Lifestyle and Structure (J, P)
+]
+
+SET q_list TO [
+    ["Do you regularly make new friends?", ...],                    # Questions for (E, I)
+    ["Do complex and novel ideas excite you?", ...],                # Questions for (S, N)
+    ["Do you prioritize honesty over sensitivity?", ...],           # Questions for (T, F)
+    ["Is your workspace and living quarter often organized?", ...]  # Questions for (J, P)
+]
+
+DISPLAY "Which bird is your MBTI personality?"
+
+SET count = 0
+WHILE count < 4:
+    SET MBTI TO MBTI + q_gen(q_list[count], dichot[count])
+    INCREMENT count BY 1
+END WHILE
+
+DISPLAY MBTI
+
+SET personality = [
+    "ISFJ": "Weaver bird"
+    .
+    .
+    .
+    "ENTJ": "Eagle"
+] 
+
+DISPLAY personality_list[MBTI]
